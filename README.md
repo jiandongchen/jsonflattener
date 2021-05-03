@@ -11,3 +11,6 @@
 }
 ```
 
+###### 转化为解析树
+
+![image](https://github.com/jiandongchen/jsonflatter/blob/main/image/ParseTree.jpg?raw=true)
