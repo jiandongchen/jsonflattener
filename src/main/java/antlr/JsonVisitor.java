@@ -19,27 +19,72 @@ public interface JsonVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitJson(JsonParser.JsonContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JsonParser#obj}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitObj(JsonParser.ObjContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JsonParser#pair}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPair(JsonParser.PairContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JsonParser#arr}.
+	 * Visit a parse tree produced by the {@code String}
+	 * labeled alternative in {@link JsonParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitArr(JsonParser.ArrContext ctx);
+	T visitString(JsonParser.StringContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JsonParser#value}.
+	 * Visit a parse tree produced by the {@code Number}
+	 * labeled alternative in {@link JsonParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitValue(JsonParser.ValueContext ctx);
+	T visitNumber(JsonParser.NumberContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Object}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObject(JsonParser.ObjectContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code EmptyObject}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEmptyObject(JsonParser.EmptyObjectContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Array}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArray(JsonParser.ArrayContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code EmptyArray}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEmptyArray(JsonParser.EmptyArrayContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code True}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTrue(JsonParser.TrueContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code False}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFalse(JsonParser.FalseContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Null}
+	 * labeled alternative in {@link JsonParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNull(JsonParser.NullContext ctx);
 }

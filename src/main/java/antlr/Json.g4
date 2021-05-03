@@ -8,30 +8,21 @@ json
    : value
    ;
 
-obj
-   : '{' pair (',' pair)* '}'
-   | '{' '}'
-   ;
-
 pair
    : STRING ':' value
    ;
 
-arr
-   : '[' value (',' value)* ']'
-   | '[' ']'
-   ;
-
 value
-   : STRING
-   | NUMBER
-   | obj
-   | arr
-   | 'true'
-   | 'false'
-   | 'null'
+   : STRING                            # String
+   | NUMBER                            # Number
+   | '{' pair (',' pair)* '}'          # Object
+   | '{' '}'                           # EmptyObject
+   | '[' value (',' value)* ']'        # Array
+   | '[' ']'                           # EmptyArray
+   | 'true'                            # True
+   | 'false'                           # False
+   | 'null'                            # Null
    ;
-
 
 STRING
    : '"' (ESC | SAFECODEPOINT)* '"'
@@ -74,6 +65,18 @@ fragment EXP
    ;
 
 // \- since - means "range" inside [...]
+
+TRUE
+    : 'true'
+    ;
+
+FALSE
+    : 'false'
+    ;
+
+NULL
+    : 'null'
+    ;
 
 WS
    : [ \t\n\r] + -> skip
