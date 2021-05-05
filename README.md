@@ -1,6 +1,14 @@
 # jsonflatter
 
-输入json
+## 背景
+
+工作中遇到一个场景是需要对上游hive表存储的json字段进行解析展开后存入下游hive表，简单说就是将一个多维json对象进行一维展开，这边使用antlr4开发一个小模块方便封装为udf供spark调用。
+
+
+
+## 效果
+
+###### 输入json
 
 ```json
 {
@@ -25,7 +33,7 @@
 
 ![image](https://github.com/jiandongchen/jsonflatter/blob/main/image/parse-tree1.png)
 
-输出json
+###### 输出json
 
 ```json
 [
