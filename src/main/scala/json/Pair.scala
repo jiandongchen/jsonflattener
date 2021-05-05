@@ -1,5 +1,7 @@
 package json
 
-class Pair(key: java.lang.String, value: Value) {
-
+class Pair(val key: java.lang.String, val value: Value) {
+  override def toString: Predef.String = {
+    key + " : " + value.toString
+  }
 }

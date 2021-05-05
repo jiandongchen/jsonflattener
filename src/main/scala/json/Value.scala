@@ -1,14 +1,22 @@
 package json
 
 abstract class Value {
-
+  def toString: Predef.String
 }
 
-case object Null extends Value
+case object Null extends Value {
+  override def toString: Predef.String = "null"
+}
 
 sealed abstract class Boolean extends Value
-case object True extends Boolean
-case object False extends Boolean
+
+case object True extends Boolean {
+  override def toString: Predef.String = "true"
+}
+
+case object False extends Boolean {
+  override def toString: Predef.String = "false"
+}
 
 
 

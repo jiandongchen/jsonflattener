@@ -1,3 +1,5 @@
 package json
 
-class String(value: java.lang.String) extends Value
+class String(val value: java.lang.String) extends Value {
+  override def toString: Predef.String = value
+}
