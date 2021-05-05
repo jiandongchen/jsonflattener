@@ -1,5 +1,5 @@
 package json
 
-class Number(val value: Int) extends Value {
+final case class Number(value: Int) extends Value {
   override def toString: Predef.String = value.toString
 }

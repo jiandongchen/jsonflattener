@@ -1,5 +1,5 @@
 package json
 
-class Json(val value: Value) {
+case class Json(value: Value) {
   override def toString: Predef.String = value.toString
 }

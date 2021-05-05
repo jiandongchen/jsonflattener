@@ -1,10 +1,9 @@
 package json
 
-class Object extends Value {
-  var pairs: List[Pair] = List.empty
-
-  def addPair(p: Pair): Unit = {
+final case class Object(var pairs: List[Pair] = List.empty) extends Value {
+  def addPair(p: Pair): Object = {
     this.pairs = this.pairs :+ p
+    this
   }
 
   override def toString: Predef.String = {

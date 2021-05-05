@@ -1,6 +1,6 @@
 package json
 
-abstract class Value {
+abstract class Value extends Product {
   def toString: Predef.String
 }
 
