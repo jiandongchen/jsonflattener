@@ -9,10 +9,9 @@ final case class Object(var pairs: List[Pair] = List.empty) extends Value {
   override def toString: Predef.String = {
     def pairsToString(pairs: List[Pair]): java.lang.String = {
       pairs match {
-        case h :: Nil =>
-          h.toString
-        case h :: t =>
-          h.toString + ",\n" + pairsToString(t)
+        case Nil => ""
+        case h :: Nil => h.toString
+        case h :: t => h.toString + ",\n" + pairsToString(t)
       }
     }
 
