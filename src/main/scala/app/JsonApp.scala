@@ -3,7 +3,7 @@ package app
 import java.io.IOException
 
 import antlr.{JsonLexer, JsonParser}
-import json.{AntlrToJson, Json, JsonFlatter}
+import json.{AntlrToJson, Json, JsonFlattener}
 import org.antlr.v4.runtime.{CharStreams, CommonTokenStream}
 
 object JsonApp {
@@ -17,7 +17,7 @@ object JsonApp {
       val antlrAST = parser.json()
       val jsonVisitor = new AntlrToJson()
       val json: Json = jsonVisitor.visit(antlrAST)
-      val flattenedJson = JsonFlatter.flatJson(json)
+      val flattenedJson = JsonFlattener.flattenJson(json)
       println(flattenedJson.toString)
     }
   }

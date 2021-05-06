@@ -1,4 +1,4 @@
-name := "jsonflatter"
+name := "jsonflattener"
 
 version := "0.1"
 

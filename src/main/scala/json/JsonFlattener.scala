@@ -1,8 +1,8 @@
 package json
 
-object JsonFlatter {
-  def flatJson(json: Json): Json = {
-    def flatObject(obj: Object): List[Object] = {
+object JsonFlattener {
+  def flattenJson(json: Json): Json = {
+    def flattenObject(obj: Object): List[Object] = {
       var objects: List[Object] = List(Object())
 
       obj.pairs.foreach {
@@ -14,7 +14,7 @@ object JsonFlatter {
           val cartesianProd = for (i <- 0 to size) yield (objects(i % objLen), values(i % valuesLen))
           objects = cartesianProd.toList.map(i => Object(i._1.pairs :+ Pair(k, i._2)))
         case Pair(k, v: Object) =>
-          val innerObjects = flatObject(v)
+          val innerObjects = flattenObject(v)
           val objLen = objects.length
           val innerObjLen = innerObjects.length
           val size = (objLen * innerObjLen) - 1
@@ -29,13 +29,13 @@ object JsonFlatter {
       objects
     }
 
-    def flatValue(v: Value): List[Value] = {
+    def flattenValue(v: Value): List[Value] = {
       v match {
-        case o: Object => flatObject(o)
+        case o: Object => flattenObject(o)
         case _ => List(v)
       }
     }
 
-    Json(Array(flatValue(json.value)))
+    Json(Array(flattenValue(json.value)))
   }
 }

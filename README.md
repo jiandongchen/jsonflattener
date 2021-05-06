@@ -1,4 +1,4 @@
-# jsonflatter
+# jsonflattener
 
 ## 背景
 
