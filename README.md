@@ -124,6 +124,8 @@
 }
 ```
 
+![image](https://github.com/jiandongchen/jsonflatter/blob/main/image/flatten-dataframe1.jpg)
+
 ###### 输出json2
 
 ```json
