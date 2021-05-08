@@ -6,7 +6,9 @@
 
 展开后多级key之间的分割符为~
 
-测试入口app.JsonApp
+纯json拆解测试入口app.JsonApp
+
+spark dataframe json拆解测试入口spark.JsonFlattenerSuite
 
 ## Model Classes
 
@@ -123,6 +125,8 @@
 	"timestamp": "1617369230495"
 }
 ```
+
+###### dataframe拆解效果
 
 ![image](https://github.com/jiandongchen/jsonflatter/blob/main/image/flatten-dataframe1.jpg)
 
