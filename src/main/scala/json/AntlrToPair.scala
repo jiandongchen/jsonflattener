@@ -7,6 +7,6 @@ class AntlrToPair extends JsonBaseVisitor[Pair] {
     val keyText = ctx.getChild(0).getText
     val value = ctx.getChild(2)
     val valueVisitor = new AntlrToValue
-    new Pair(keyText, valueVisitor.visit(value))
+    Pair(keyText, valueVisitor.visit(value))
   }
 }
