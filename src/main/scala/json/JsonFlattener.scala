@@ -2,6 +2,7 @@ package json
 
 object JsonFlattener {
   def flattenJson(json: Json): Json = {
+
     def flattenObject(obj: Object): List[Object] = {
       var objects: List[Object] = List(Object())
 
@@ -12,7 +13,7 @@ object JsonFlattener {
           val valuesLen = values.length
           val size = (objLen * valuesLen) - 1
           val cartesianProd = for (i <- 0 to size) yield (objects(i % objLen), values(i % valuesLen))
-          objects = cartesianProd.toList.map(i => Object(i._1.pairs :+ Pair(k, i._2)))
+          objects = cartesianProd.toList.map(i => Object(i._1.pairs :+ Pair(k, i._2))).flatMap(flattenObject)
         case Pair(k, v: Object) =>
           val innerObjects = flattenObject(v)
           val objLen = objects.length
@@ -20,7 +21,7 @@ object JsonFlattener {
           val size = (objLen * innerObjLen) - 1
           val cartesianProd = for (i <- 0 to size) yield (objects(i % objLen), innerObjects(i % innerObjLen))
           objects = cartesianProd.toList.map(i => Object(i._1.pairs ++ i._2.pairs.map(p => {
-            Pair("\"" + k.replace("\"", "") + "_" + p.key.replace("\"", "") + "\"", p.value)
+            Pair("\"" + k.replace("\"", "") + "~" + p.key.replace("\"", "") + "\"", p.value)
           })))
 
         case Pair(k, v) => objects = objects.map(obj => obj.addPair(Pair(k, v)))
