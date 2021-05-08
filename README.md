@@ -78,6 +78,12 @@ spark dataframe json拆解测试入口spark.JsonFlattenerSuite
 ]
 ```
 
+###### json1 dataframe中拆解效果
+
+![image](https://github.com/jiandongchen/jsonflatter/blob/main/image/flatten-dataframe1.jpg)
+
+
+
 ###### 输入json2
 
 ```json
@@ -125,10 +131,6 @@ spark dataframe json拆解测试入口spark.JsonFlattenerSuite
 	"timestamp": "1617369230495"
 }
 ```
-
-###### dataframe拆解效果
-
-![image](https://github.com/jiandongchen/jsonflatter/blob/main/image/flatten-dataframe1.jpg)
 
 ###### 输出json2
 
